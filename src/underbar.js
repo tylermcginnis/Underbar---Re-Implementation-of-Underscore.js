@@ -61,10 +61,22 @@ var _ = { };
     // TIP: Here's an example of a function that needs to iterate, which we've
     // implemented for you. Instead of using a standard `for` loop, though,
     // it uses the iteration helper `each`, which you will need to write.
+    
+    if(array.indexOf === null){
+      for(var i=0; i<array.length; i++){
+          if(array[i] === target){
+            return i; 
+          }
+      }   
+    }
+    else{
+      return array.indexOf(target); 
+    }
   };
 
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, iterator) {
+
   };
 
   // Return all elements of an array that don't pass a truth test.
@@ -75,6 +87,7 @@ var _ = { };
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
+
   };
 
 
@@ -294,3 +307,44 @@ var _ = { };
   };
 
 }).call(this);
+
+
+function Plant(){
+  this.country = "Mexico"; 
+  this.isOrg = true; 
+}
+
+Plant.prototype.sayType = function(){
+  console.log(this.country); 
+};
+
+Plant.prototype.isOrg = function(){
+  console.log("yes"); 
+};
+
+function Fruit(name, color){
+  this.name = name; 
+  this.color = color; 
+}
+
+
+Fruit.prototype = new Plant(); 
+
+var orange = new Fruit("orange", "color");
+
+console.log(orange.isOrg());  
+
+
+function Vegetable(height, ages){
+  this.h = height; 
+  this.ages = ages; 
+}
+
+Vegetable.prototype = new Fruit(); 
+
+var celery = new Vegetable(2, 12); 
+
+celery.name = "celery"; 
+console.log(celery.isOrg()); 
+
+alert(celery.country); 
