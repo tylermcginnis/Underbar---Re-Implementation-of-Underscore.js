@@ -53,7 +53,7 @@ var _ = { };
   // Call iterator(value, key, collection) for each element of collection.
   // Accepts both arrays and objects.
   _.each = function(collection, iterator) {
-      
+
   };
 
   // Returns the index at which value can be found in the array, or -1 if value
@@ -88,8 +88,13 @@ var _ = { };
 
   // Return all elements of an array that don't pass a truth test.
   _.reject = function(collection, iterator) {
-    // TIP: see if you can re-use _.select() here, without simply
-    // copying code in and modifying it
+      var final_array = []; 
+      for(var i=0; i < collection.length; i++){
+        if(!iterator(collection[i])){
+          final_array.push(collection[i]); 
+        }
+      }
+      return final_array; 
   };
 
   // Produce a duplicate-free version of the array.
