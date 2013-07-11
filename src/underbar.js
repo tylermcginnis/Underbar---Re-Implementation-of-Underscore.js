@@ -53,7 +53,18 @@ var _ = { };
   // Call iterator(value, key, collection) for each element of collection.
   // Accepts both arrays and objects.
   _.each = function(collection, iterator) {
-      
+      if(collection instanceof Array){
+        for(var i=0; i < collection.length; i++){
+          iterator(collection[i], i, collection);
+        }
+      }
+      else {
+      for (var key in collection) {
+        if (collection.hasOwnProperty(key)) {
+          iterator(collection[key], key, collection);
+        }
+      }
+    }
   };
 
   // Returns the index at which value can be found in the array, or -1 if value
@@ -149,6 +160,8 @@ var _ = { };
 
   // Calls the method named by methodName on each value in the list.
   _.invoke = function(list, methodName, args) {
+     
+      console.log(list);
 
   };
 
