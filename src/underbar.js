@@ -53,7 +53,7 @@ var _ = { };
   // Call iterator(value, key, collection) for each element of collection.
   // Accepts both arrays and objects.
   _.each = function(collection, iterator) {
-
+      
   };
 
   // Returns the index at which value can be found in the array, or -1 if value
@@ -99,7 +99,22 @@ var _ = { };
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
-      
+      var finalArray = []; 
+      var add; 
+
+      for(var i=0; i < array.length; i++){
+        add = true; 
+        for(var j=0; j < finalArray.length; j++){
+          if(array[i]===finalArray[j]){
+            add = false; 
+            break; 
+          }
+        }
+        if(add){
+          finalArray.push(array[i]);
+        }
+      }
+      return finalArray; 
   };
 
 
@@ -134,6 +149,7 @@ var _ = { };
 
   // Calls the method named by methodName on each value in the list.
   _.invoke = function(list, methodName, args) {
+
   };
 
   // Reduces an array or object to a single value by repetitively calling
@@ -150,6 +166,7 @@ var _ = { };
   //   }, 0); // should be 6
   //
   _.reduce = function(collection, iterator, initialValue) {
+
   };
 
   // Determine if the array or object contains a given value (using `===`).
