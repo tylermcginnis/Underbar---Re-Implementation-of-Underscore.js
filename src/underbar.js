@@ -158,13 +158,11 @@ var _ = { };
     });
   };
 
+
   // Calls the method named by methodName on each value in the list.
-  _.invoke = function(list, methodName, args) {
-     
-      console.log(list);
-
+   _.invoke = function(list, methodName, args) { 
+    
   };
-
   // Reduces an array or object to a single value by repetitively calling
   // iterator(previousValue, item) for each item. previousValue should be
   // the return value of the previous iterator call.
@@ -178,10 +176,9 @@ var _ = { };
   //     return total + number;
   //   }, 0); // should be 6
   //
-  _.reduce = function(collection, iterator, initialValue) {
-
+   _.reduce = function(collection, iterator, initialValue) {
+     
   };
-
   // Determine if the array or object contains a given value (using `===`).
   _.contains = function(collection, target) {
     // TIP: Many iteration problems can be most easily expressed in
@@ -198,6 +195,16 @@ var _ = { };
   // Determine whether all of the elements match a truth test.
   _.every = function(collection, iterator) {
     // TIP: Try re-using reduce() here.
+    if(collection.length === 0 || iterator === undefined){
+      return true; 
+    }
+    var bool = true; 
+    for(var i=0; i < collection.length; i++){
+      if(iterator(collection[i]) === false || iterator(collection[i]) === undefined || iterator(collection[i]) === 0){
+        return false; 
+      }
+    }
+    return bool; 
   };
 
   // Determine whether any of the elements pass a truth test. If no iterator is
@@ -226,6 +233,7 @@ var _ = { };
   //     bla: "even more stuff"
   //   }); // obj1 now contains key1, key2, key3 and bla
   _.extend = function(obj) {
+
   };
 
   // Like extend, but doesn't ever overwrite a key that already
@@ -280,6 +288,7 @@ var _ = { };
   // parameter. For example _.delay(someFunction, 500, 'a', 'b') will
   // call someFunction('a', 'b') after 500ms
   _.delay = function(func, wait) {
+    
   };
 
 
