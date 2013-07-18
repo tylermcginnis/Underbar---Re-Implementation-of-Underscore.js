@@ -161,7 +161,14 @@ var _ = { };
 
   // Calls the method named by methodName on each value in the list.
    _.invoke = function(list, methodName, args) { 
-    
+     _.each(list, function(element) {
+        if (typeof methodName === "string") { //method is string
+          element[methodName].apply(element, args);
+        } else {
+          methodName.apply(element, args);
+        }
+      });
+    return list; 
   };
   // Reduces an array or object to a single value by repetitively calling
   // iterator(previousValue, item) for each item. previousValue should be
@@ -300,7 +307,7 @@ var _ = { };
   // parameter. For example _.delay(someFunction, 500, 'a', 'b') will
   // call someFunction('a', 'b') after 500ms
   _.delay = function(func, wait) {
-    
+     
   };
 
 
