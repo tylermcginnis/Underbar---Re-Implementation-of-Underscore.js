@@ -184,7 +184,15 @@ var _ = { };
   //   }, 0); // should be 6
   //
    _.reduce = function(collection, iterator, initialValue) {
-     
+     _.each(collection, function(element) {
+      if (initialValue === undefined) {
+         initialValue = collection[0];
+      } 
+      else {
+        initialValue = iterator(initialValue, element);
+      }
+    });
+    return initialValue;
   };
   // Determine if the array or object contains a given value (using `===`).
   _.contains = function(collection, target) {
@@ -252,12 +260,13 @@ var _ = { };
   //     bla: "even more stuff"
   //   }); // obj1 now contains key1, key2, key3 and bla
   _.extend = function(obj) {
-
+      
   };
 
   // Like extend, but doesn't ever overwrite a key that already
   // exists in obj
   _.defaults = function(obj) {
+
   };
 
 
