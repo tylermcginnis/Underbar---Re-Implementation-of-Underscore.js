@@ -355,7 +355,16 @@ var _ = { };
 
   // Shuffle an array.
   _.shuffle = function(array) {
+    var results = []; 
+    for(var i=0; i < array.length -1; i++){
+      var l = array.length -1; 
+      var randChoice = Math.floor(Math.random() * l + 0);
+      results.push(array[randChoice]);
+      array.splice(randChoice, 1);
+    }
+    return results; 
   };
+
 
 
   /**
